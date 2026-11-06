@@ -15,12 +15,15 @@ RGH/JTAG consoles only.
 - [x] 1080p 30 fps 30 Mbps plays to the end (about 3% of frames skipped)
 - [x] Player app: file browser, audio and subtitle tracks, seeking, aspect ratio, brightness (from Simple 360 Player)
 - [x] FFmpeg fallback for everything the GPU path cannot do
-- [x] First beta releases (v0.1, v0.1.1)
+- [x] Beta releases (v0.1, v0.1.1, v0.1.2)
+- [x] Fixed the random crashes: the system decoder's own thread worked on the decoder at the same time as ours
+- [x] Fixed the file browser freezing after ~100 s
+- [x] 4 minutes of 1080p30 30 Mbps with seeking, end of file and browsing afterwards: no crash
 - [x] Fixed the random crash/lock-up (stream headers were resent before every keyframe)
 - [x] Clean shutdown of the decoder (per file, and when the app exits to the dashboard)
 
 ## In progress
-- [ ] Long playback and seeking tests on the GPU path, then v0.1.2
+- [ ] Fewer skipped frames at 30 Mbps (7% now) and 720p60 (about 47 of 60 frames shown)
 - [ ] Launching another title straight from playback crashes that title once
 
 ## Planned
