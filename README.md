@@ -11,21 +11,25 @@ RGH/JTAG consoles only.
 - [x] Own driver for it, without Microsoft's XAV player layer
 - [x] Decoded pictures stay on the GPU and are drawn directly (YUV to RGB shader)
 - [x] 720p 60 fps 15 Mbps decodes at about 80 fps
-- [x] 1080p 30 fps 20 Mbps decodes at a steady 30 fps in tests
+- [x] 1080p 30 fps 20 Mbps plays with under 1% of frames skipped
+- [x] 1080p 30 fps 30 Mbps plays to the end (about 3% of frames skipped)
 - [x] Player app: file browser, audio and subtitle tracks, seeking, aspect ratio, brightness (from Simple 360 Player)
 - [x] FFmpeg fallback for everything the GPU path cannot do
-- [x] First beta release (v0.1)
+- [x] First beta releases (v0.1, v0.1.1)
+- [x] Fixed the random crash/lock-up (stream headers were resent before every keyframe)
+- [x] Clean shutdown of the decoder (per file, and when the app exits to the dashboard)
 
 ## In progress
-- [ ] Fix the console lock-up seen in the first test of the full player
-- [ ] Verify audio/video sync, seeking and end of file on the GPU path
-- [ ] Clean shutdown of the decoder (it is left open when the app exits)
+- [ ] Long playback and seeking tests on the GPU path, then v0.1.2
+- [ ] Launching another title straight from playback crashes that title once
 
 ## Planned
 - [ ] 1080p 60 fps (about 50 fps decoded so far, marked experimental)
 - [ ] Smoother picture: the screen swap can stall while the decoder works
+- [ ] **HEVC (H.265)**: the next big step once the H.264 items above are done. The console's decoder only
+      knows H.264 / VC-1 / WMV, so HEVC needs our own decoder (CPU + GPU shaders); research comes first
 - [ ] Moonlight game streaming client (needs low-latency decoding)
-- [ ] H.265 / AV1 research
 - [ ] Reuse the decoder in Multiplex 360 (Plex), a Jellyfin client and a YouTube client
 - [ ] HD DVD player research: the add-on used a GPU decoder too
 - [ ] Documentation of how the decoder works
+- [ ] Far off: 10-bit colour / HDR sources and other special formats, AV1 research
